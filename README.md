@@ -22,3 +22,11 @@ The following technologies were used in this project:
 Before starting, you need to have [Node.js](https://nodejs.org/) installed.
 
 Kindly ensure that you are in the root directory before running the following commands.
+
+
+## Install dependencies
+    npm install
+
+## Start server
+
+    npm run server
