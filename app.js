@@ -1,16 +1,20 @@
 const express = require('express');
 const app = express();
-const path = require("path");
+const bodyParser = require('body-parser');
+const connectDB = require('./models/db');
+
+connectDB()
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static("views/public"))
+
+// routes
+app.use('/', require('./routes/homePage'));
 
 
-app.use(express.static("public"))
-
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+const PORT = 8080
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
 });
 
-
-app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
-});
